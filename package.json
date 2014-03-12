@@ -1,0 +1,12 @@
+{
+    "name": "aether",
+    "version": "0.0.1",
+    "description": "real time communications",
+    "dependencies": {
+        "socket.io": "latest",
+        "express": "latest",
+        "jade": "latest",
+		"underscore": "latest"
+    },
+    "author": "Blake La Pierre"
+}

@@ -1,0 +1,27 @@
+!!!
+html(ng-app="aether")
+	head
+		title= "aether"
+		script(src='/js/angular.min.js')
+		script(src='/js/ui-bootstrap-tpls-0.4.0.min.js')
+		script(src='/socket.io/socket.io.js')
+		script(src='/js/client.js')
+
+		link(rel='stylesheet', href='/css/bootstrap.css')
+		link(rel='stylesheet', href='/css/aether.css')
+	body
+		div(ng-controller="AetherCtrl", class="aether")
+			div(class="area")
+				h3(class="text-center") Earth
+			div(ng-repeat="message in messages")
+				span {{message.originName}}
+				span {{message.message}}
+				img(src="/images/ellipsis.gif", ng-class="{'hide': message.complete}")
+
+			form(class='form-inline', ng-submit='sendMessage()')
+				input(type='text', class='form-control', ng-model='currentMessage', ng-change='currentMessageChanged()', placeholder='Enter Message')
+				button(type='submit', class='btn btn-primary', value='send') Send
+
+			form
+				input(type='file', accept='image/*', capture)
+		footer
